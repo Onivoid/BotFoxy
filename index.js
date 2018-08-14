@@ -10,7 +10,6 @@ require('dotenv').config({
 
 const Discord = require('discord.js'),
       clear = require('clear'),
-      channelGeneral = member.guild.channels.find('name', process.env.CHANNEL_WELCOME),
       client = new Discord.Client(),
       colors = require('colors'),
       eventHandler = require('./Messages/EventHandler'),
@@ -33,7 +32,6 @@ client.on('ready', () => {
 
   🎉 Votre bot est actuellement connecté ! 🎉
   `.cyan.bold);
-  channelGeneral.send("Yo les bitchies je viens d'être connecté hehe 😈 !")
 });
 
 client.on('message', msg =>{
