@@ -19,7 +19,7 @@ module.exports = {
 
       ( profanityCurrentLevel%10 === 0 )
       ? msg.channel.send(msg.author+", tu as atteint le niveau "+profanityCurrentLevel+" de toxicitée.")
-      : null
+      : null;
 
       // ProfanityLevel + 1
       axios.put(apiUrl+"/"+user+"/"+increment)
