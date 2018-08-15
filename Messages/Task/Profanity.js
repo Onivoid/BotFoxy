@@ -27,19 +27,35 @@ module.exports = {
   },
 
   ProfanityLevelAsk : msg => {
-    let username = msg.mentions.users.first().username,
+    let usernameMention = msg.mentions.users.first(),
+        author = msg.author.username
         axios = require('axios'),
         apiUrl = process.env.API_URL;
 
-    axios.get(apiUrl+"/"+username)
-    .then(response => {
+    if (usernameMention != undefined){
+      axios.get(apiUrl+"/"+usernameMention.username)
+      .then(response => {
 
-      let infos = JSON.parse(JSON.stringify(response.data.data.user)),
-          profanityCurrentLevel = infos[0].ProfanityLevel;
-      
-      msg.channel.send("Ton niveau de toxicitée est "+profanityCurrentLevel+" !");
+        let infos = JSON.parse(JSON.stringify(response.data.data.user)),
+            profanityCurrentLevel = infos[0].ProfanityLevel;
+        
+        msg.channel.send("Le niveau de toxicitée de "+usernameMention.username+" est "+profanityCurrentLevel+" !");
 
-    })
+      })
+    } else {
+      axios.get(apiUrl+"/"+author)
+      .then(response => {
+
+        let infos = JSON.parse(JSON.stringify(response.data.data.user)),
+            profanityCurrentLevel = infos[0].ProfanityLevel;
+        
+        msg.channel.send("Ton niveau de toxicitée est "+profanityCurrentLevel+" !");
+
+      })
+
+    }
+
+    
     
   }
 
