@@ -17,6 +17,7 @@ const Discord = require('discord.js'),
 
 client.on('ready', () => {
   clear();
+
   console.log(`
   💠 Bot discord développé par 💠
 
@@ -32,6 +33,8 @@ client.on('ready', () => {
 
   🎉 Votre bot est actuellement connecté ! 🎉
   `.cyan.bold);
+
+  client.user.setGame('Foxy liste de commandes')
 });
 
 client.on('message', (msg) =>{
