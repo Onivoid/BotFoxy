@@ -21,7 +21,7 @@ module.exports = {
       : null
 
       // ProfanityLevel + 1
-      axios.put(apiUrl+"/"+user+"/"+profanityCurrentLevel++)
+      axios.put(apiUrl+"/"+user+"/"+profanityCurrentLevel+1)
       .then() 
       
     })
