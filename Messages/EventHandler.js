@@ -1,12 +1,25 @@
 const Discord = require('discord.js'),
       client = new Discord.Client(),
+      profanity   =  require('./Task/Profanity'),
       help   =  require('./Task/Help');
+
+
 
 module.exports = {
 
   onMessage : (msg) => {
+    /* FILTER Profanity */
+    var BadWords = require('bad-words');
+    const frenchBadWords = require('french-badwords-list');
+    var badwords = new BadWords({ placeHolder: 'x', emptyList: true });
+    badwords.addWords(frenchBadWords.array);
+
     (msg.content.includes('liste de commandes') && msg.content.startsWith('Foxy'))
     ? help.Help(msg)
+    : null
+
+    badwords.isProfane(msg.content)
+    ? profanity.Profanity(msg)
     : null
   },
 

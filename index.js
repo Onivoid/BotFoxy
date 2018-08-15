@@ -34,7 +34,7 @@ client.on('ready', () => {
   `.cyan.bold);
 });
 
-client.on('message', msg =>{
+client.on('message', (msg) =>{
   eventHandler.onMessage(msg);
 });
 
