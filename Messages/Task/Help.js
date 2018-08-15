@@ -6,7 +6,9 @@ module.exports = {
     msg.channel.send(new Discord.RichEmbed({
       title : " 🦊 Commandes disponnibles 🦊",
       color : "749999",
-      description : `\`Foxy ProfanityLevel @Utilisateur\` : Permet de connaître le ProfanityLevel de quelqu'un.`,
+      description : `
+      \`Foxy ProfanityLevel\` : Permet de connaître ton ProfanityLevel.
+      \`Foxy ProfanityLevel @Utilisateur\` : Permet de connaître le ProfanityLevel de quelqu'un.`,
       
     }).setFooter('©️Skullyfox#2814'));
   }
