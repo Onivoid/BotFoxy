@@ -7,8 +7,12 @@ module.exports = {
       title : " 🦊 Commandes disponnibles 🦊",
       color : "749999",
       description : `
-      \`Foxy ProfanityLevel\` : Permet de connaître ton ProfanityLevel.
-      \`Foxy ProfanityLevel @Utilisateur\` : Permet de connaître le ProfanityLevel de quelqu'un.`,
+      
+      :one:  ***\`Foxy ProfanityLevel\` : Permet de connaître ton ProfanityLevel.***
+      
+      :two:  ***\`Foxy ProfanityLevel @Utilisateur\` : Permet de connaître le ProfanityLevel de quelqu'un.***
+      
+      `,
       
     }).setFooter('©️Skullyfox#2814'));
   }
