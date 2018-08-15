@@ -14,14 +14,15 @@ module.exports = {
     .then(response => {
 
       let infos = response.data.data.user[0],
-          profanityCurrentLevel = parseInt(infos.ProfanityLevel);
+          profanityCurrentLevel = parseInt(infos.ProfanityLevel),
+          increment = profanityCurrentLevel++
 
       ( profanityCurrentLevel%10 === 0 )
       ? msg.channel.send(msg.author+", tu as atteint le niveau "+profanityCurrentLevel+" de toxicitée.")
       : null
 
       // ProfanityLevel + 1
-      axios.put(apiUrl+"/"+user+"/"+profanityCurrentLevel+1)
+      axios.put(apiUrl+"/"+user+"/"+increment)
       .then() 
       
     })
