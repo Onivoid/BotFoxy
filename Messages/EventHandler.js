@@ -1,6 +1,7 @@
 const Discord = require('discord.js'),
       client = new Discord.Client(),
       profanity   =  require('./Task/Profanity'),
+      newUserApi   =  require('./Task/NewUserAPI'),
       help   =  require('./Task/Help');
 
 
@@ -14,18 +15,23 @@ module.exports = {
     var badwords = new BadWords({ placeHolder: 'x', emptyList: true });
     badwords.addWords(frenchBadWords.array);
 
-    (msg.content.includes('liste de commandes') && msg.content.startsWith('Foxy'))
+    msg.content.includes('liste de commandes') && msg.content.startsWith('Foxy')
     ? help.Help(msg)
-    : null
+    : null;
 
     badwords.isProfane(msg.content)
     ? profanity.Profanity(msg)
-    : null
+    : null;
+
+    msg.content.includes('ProfanityLevel') && msg.content.startsWith('Foxy')
+    ? profanity.ProfanityLevelAsk(msg)
+    : null;
   },
 
   newMember: member => {
     const channel = member.guild.channels.find('name', process.env.CHANNEL_WELCOME);
     const defaultRole = member.guild.roles.find('name', process.env.DEFAULT_ROLE);
+
     channel.send(`${member}`,new Discord.RichEmbed({
       title : "💠 Bienvenue sur notre serveur ! 💠",
       color : "749999",
@@ -38,6 +44,8 @@ module.exports = {
       
     }).setFooter('©️Skullyfox#2814'));
     member.addRole(defaultRole).catch(console.error)
+
+    newUserApi.PostUser(member);
   },
 
   leaveMember: member => {
