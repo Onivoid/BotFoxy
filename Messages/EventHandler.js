@@ -10,9 +10,9 @@ module.exports = {
 
   onMessage : (msg) => {
     /* FILTER Profanity */
-    var BadWords = require('bad-words');
+    let BadWords = require('bad-words');
     const frenchBadWords = require('french-badwords-list');
-    var badwords = new BadWords({ placeHolder: 'x', emptyList: true });
+    let badwords = new BadWords({ placeHolder: 'x', emptyList: true });
     badwords.addWords(frenchBadWords.array);
 
     msg.content.includes('liste de commandes') && msg.content.startsWith('Foxy')
