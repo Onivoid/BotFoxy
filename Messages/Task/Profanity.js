@@ -15,7 +15,7 @@ module.exports = {
 
       let infos = response.data.data.user[0],
           profanityCurrentLevel = parseInt(infos.ProfanityLevel),
-          increment = profanityCurrentLevel++
+          increment = profanityCurrentLevel+1;
 
       // ProfanityLevel + 1
       axios.put(apiUrl+"/"+user+"/"+increment)
