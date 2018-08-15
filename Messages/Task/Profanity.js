@@ -15,7 +15,7 @@ module.exports = {
 
       let infos = response.data.data.user[0],
           profanityCurrentLevel = parseInt(infos.ProfanityLevel),
-          increment = profanityCurrentLevel++;
+          increment = profanityCurrentLevel+1;
 
           if(increment%10 === 0) msg.channel.send(msg.author+", tu as atteint le niveau "+increment+" de toxicitée.")
 
