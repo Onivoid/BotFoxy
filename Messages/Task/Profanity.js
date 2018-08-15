@@ -27,7 +27,7 @@ module.exports = {
   },
 
   ProfanityLevelAsk : msg => {
-    let username = msg.author.username,
+    let username = msg.mentions.users.first().username,
         axios = require('axios'),
         apiUrl = process.env.API_URL;
 
