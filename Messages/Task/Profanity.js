@@ -17,13 +17,13 @@ module.exports = {
           profanityCurrentLevel = parseInt(infos.ProfanityLevel),
           increment = profanityCurrentLevel++
 
-      ( profanityCurrentLevel%10 === 0 )
-      ? msg.channel.send(msg.author+", tu as atteint le niveau "+profanityCurrentLevel+" de toxicitée.")
-      : null;
-
       // ProfanityLevel + 1
       axios.put(apiUrl+"/"+user+"/"+increment)
-      .then() 
+      .then(() => {
+        ( profanityCurrentLevel%10 === 0 )
+        ? msg.channel.send(msg.author+", tu as atteint le niveau "+profanityCurrentLevel+" de toxicitée.")
+        : null;
+      }) 
       
     })
   },
