@@ -8,7 +8,6 @@ module.exports = {
   Help : (msg) => {
     msg.channel.send(new Discord.RichEmbed()
                     .setAuthor(client.user.username,client.user.avatarURL)
-                    .addBlankField()
                     .setTitle('| Commandes disponnibles |')
                     .setColor(7385958)
                     .setThumbnail(client.user.avatarURL)
