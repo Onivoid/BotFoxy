@@ -1,5 +1,8 @@
 const Discord = require('discord.js'),
-      client = new Discord.Client();
+      client = new Discord.Client(),
+      token = process.env.TOKEN;
+      
+client.login(token)
 
 module.exports = {
   PostUser : member => {
