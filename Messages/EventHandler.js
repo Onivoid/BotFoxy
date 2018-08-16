@@ -41,10 +41,10 @@ module.exports = {
             .setColor(7385958)
             .setThumbnail(member.user.avatarURL)
             .setTimestamp()
-            .addField(null,"Tu as actuellement le rôle de \`| Membre Temporaire |\`.")
-            .addField(null,`Pour ne plus l'avoir, je t'invite à faire ta présentation dans le channel \`#présentation\`.
-Dans une semaine, si cette présentation n'est pas faite, tu seras automatiquement banni du serveur !`)
-            .addField(" ",`Nous te souhaitons de passer de bons moments parmis nous ! 😄`)
+            .addField(`Tu as actuellement le rôle de \`| Membre Temporaire |\``,
+`Pour ne plus l'avoir, je t'invite à faire ta présentation dans le channel \`#présentation\`.
+Dans une semaine, si cette présentation n'est pas faite, tu seras automatiquement banni du serveur !
+Nous te souhaitons de passer de bons moments parmis nous ! 😄`)
     );
     member.addRole(defaultRole).catch(console.error)
 
@@ -57,11 +57,10 @@ Dans une semaine, si cette présentation n'est pas faite, tu seras automatiqueme
 
     channel.send(new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
-            .setTitle("💀 "+username+" à quitté le discord. 💀")
             .setColor(7385958)
             .setThumbnail(member.user.avatarURL)
             .setTimestamp()
-            .addField(null,"Notre ami `+username+` à quitté notre serveur, quel dommage.")
+            .addField("💀 "+username+" à quitté le discord. 💀","Notre ami `+username+` à quitté notre serveur, quel dommage.")
     );
   }
 
