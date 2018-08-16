@@ -15,7 +15,7 @@ module.exports = {
         icon_url: client.user.avatarURL
       },
 
-      color : 14643262,
+      color : 7385958,
       
       thumbnail : {
         url : client.user.avatarURL,
