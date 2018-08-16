@@ -10,7 +10,7 @@ module.exports = {
     axios.get(apiUrl+"/"+username)
     .then(response => {
 
-      let infos = JSON.parse(JSON.stringify(response.data.data.user[0])),
+      let infos = JSON.parse(JSON.stringify(response.data.data.user[0]));
       
       if(infos === undefined){
         axios.post(apiUrl+"/"+username+"/0")
