@@ -7,7 +7,16 @@ module.exports = {
         username = member.user.username,
         apiUrl = process.env.API_URL;
 
-    axios.post(apiUrl+"/"+username+"/0")
-    .then(console.log(username+" ajouté à l'API"))
+    axios.get(apiUrl+"/"+username)
+    .then(response => {
+
+      let infos = JSON.parse(JSON.stringify(response.data.data.user[0])),
+      
+      if(infos === undefined){
+        axios.post(apiUrl+"/"+username+"/0")
+        .then(console.log(username+" ajouté à l'API"))
+      }
+
+    })
   }
 }
