@@ -12,6 +12,7 @@ module.exports = {
                     .setColor(7385958)
                     .setThumbnail(client.user.avatarURL)
                     .setTimestamp()
+                    .addBlankField()
                     .addField(":one: **Foxy ProfanityLevel : **","Permet de connaître ton ProfanityLevel.")
                     .addField(":two: **Foxy ProfanityLevel @Utilisateur : **","Permet de connaître le ProfanityLevel de quelqu'un.")
                     .setFooter("©️Skullyfox#0666",client.users.get('138050601702522880').avatarURL)
