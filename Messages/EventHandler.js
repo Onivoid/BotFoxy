@@ -41,8 +41,8 @@ module.exports = {
             .setColor(7385958)
             .setThumbnail(member.user.avatarURL)
             .setTimestamp()
-            .addField(" ","Tu as actuellement le rôle de \`| Membre Temporaire |\`.")
-            .addField(" ",`Pour ne plus l'avoir, je t'invite à faire ta présentation dans le channel \`#présentation\`.
+            .addField(null,"Tu as actuellement le rôle de \`| Membre Temporaire |\`.")
+            .addField(null,`Pour ne plus l'avoir, je t'invite à faire ta présentation dans le channel \`#présentation\`.
 Dans une semaine, si cette présentation n'est pas faite, tu seras automatiquement banni du serveur !`)
             .addField(" ",`Nous te souhaitons de passer de bons moments parmis nous ! 😄`)
     );
@@ -61,7 +61,7 @@ Dans une semaine, si cette présentation n'est pas faite, tu seras automatiqueme
             .setColor(7385958)
             .setThumbnail(member.user.avatarURL)
             .setTimestamp()
-            .addField(" ","Notre ami `+username+` à quitté notre serveur, quel dommage.")
+            .addField(null,"Notre ami `+username+` à quitté notre serveur, quel dommage.")
     );
   }
 
