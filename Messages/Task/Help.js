@@ -14,7 +14,7 @@ module.exports = {
                     .setTimestamp()
                     .addField(":one: **Foxy ProfanityLevel : **","Permet de connaître ton ProfanityLevel.")
                     .addField(":two: **Foxy ProfanityLevel @Utilisateur : **","Permet de connaître le ProfanityLevel de quelqu'un.")
-                    .addField(":three: **Foxy Profanity Top [1 - 5] : **","Permet de connaître le Top de 1 à 5 des membres les plus toxique.")
+                    .addField(":three: **Foxy ProfanityTop [1 - 5] : **","Permet de connaître le Top de 1 à 5 des membres les plus toxique.")
                     .setFooter("©️Skullyfox#0666",client.users.get('138050601702522880').avatarURL)
     );
   }
