@@ -48,7 +48,7 @@ module.exports = {
                     .setThumbnail(usernameMention.avatarURL)
                     .setTimestamp()
                     .addField("**Profanity Level de "+usernameMention.username+" : **","Level "+profanityCurrentLevel)
-                        );
+        );
       })
     } else {
       axios.get(apiUrl+"/"+author)
@@ -63,14 +63,11 @@ module.exports = {
                         .setThumbnail(msg.author.avatarURL)
                         .setTimestamp()
                         .addField("**Profanity Level de "+msg.author.username+" : **","Level "+profanityCurrentLevel)
-          );
+        );
 
       })
 
-    }
-
-    
-    
+    }  
   }
 
 }

@@ -6,37 +6,15 @@ client.login(token)
 
 module.exports = {
   Help : (msg) => {
-    msg.channel.send(new Discord.RichEmbed({
-
-      title : "| Commandes disponnibles |",
-
-      author : {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-
-      color : 7385958,
-      
-      thumbnail : {
-        url : client.user.avatarURL,
-      },
-
-      fields : [
-        {
-          name: " :one: **Foxy ProfanityLevel : **",
-          value: "Permet de connaître ton ProfanityLevel."
-        },
-        {
-          name: " :two: **Foxy ProfanityLevel @Utilisateur : **",
-          value: "Permet de connaître le ProfanityLevel de quelqu'un."
-        }
-      ],
-
-      footer: {
-        icon_url: client.users.get('138050601702522880').avatarURL,
-        text: "©️Skullyfox#0666",
-      },
-      
-    }));
+    msg.channel.send(new Discord.RichEmbed()
+                    .setTitle('| Commandes disponnibles |')
+                    .setAuthor(client.user.username,client.user.avatarURL)
+                    .setColor(7385958)
+                    .setThumbnail(client.user.avatarURL)
+                    .setTimestamp()
+                    .addField(":one: **Foxy ProfanityLevel : **","Permet de connaître ton ProfanityLevel.")
+                    .addField(":two: **Foxy ProfanityLevel @Utilisateur : **","Permet de connaître le ProfanityLevel de quelqu'un.")
+                    .setFooter("©️Skullyfox#0666",client.users.get('138050601702522880').avatarURL)
+    );
   }
 }
