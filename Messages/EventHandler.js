@@ -61,7 +61,7 @@ Dans une semaine, si cette présentation n'est pas faite, tu seras automatiqueme
             .setColor(7385958)
             .setThumbnail(member.user.avatarURL)
             .setTimestamp()
-            .addField("Notre ami `+username+` à quitté notre serveur, quel dommage.")
+            .addField(" ","Notre ami `+username+` à quitté notre serveur, quel dommage.")
     );
   }
 
