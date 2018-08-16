@@ -2,7 +2,10 @@ const Discord = require('discord.js'),
       client = new Discord.Client(),
       profanity   =  require('./Task/Profanity'),
       newUserApi   =  require('./Task/NewUserAPI'),
-      help   =  require('./Task/Help');
+      help   =  require('./Task/Help'),
+      token = process.env.TOKEN;
+      
+client.login(token)
 
 
 
