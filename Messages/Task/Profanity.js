@@ -1,5 +1,8 @@
 const Discord = require('discord.js'),
-      client = new Discord.Client();
+      client = new Discord.Client(),
+      token = process.env.TOKEN;
+      
+client.login(token)
 
 module.exports = {
 
@@ -38,9 +41,14 @@ module.exports = {
 
         let infos = JSON.parse(JSON.stringify(response.data.data.user)),
             profanityCurrentLevel = infos[0].ProfanityLevel;
-        
-        msg.channel.send("Le niveau de toxicitée de "+usernameMention.username+" est "+profanityCurrentLevel+" !");
 
+        msg.channel.send(new Discord.RichEmbed()
+                    .setAuthor(client.user.username,client.user.avatarURL)
+                    .setColor(7385958)
+                    .setThumbnail(usernameMention.avatarURL)
+                    .setTimestamp()
+                    .addField("**Profanity Level de "+usernameMention.username+" : **","Level "+profanityCurrentLevel)
+                        );
       })
     } else {
       axios.get(apiUrl+"/"+author)
@@ -49,7 +57,13 @@ module.exports = {
         let infos = JSON.parse(JSON.stringify(response.data.data.user)),
             profanityCurrentLevel = infos[0].ProfanityLevel;
         
-        msg.channel.send("Ton niveau de toxicitée est "+profanityCurrentLevel+" !");
+            msg.channel.send(new Discord.RichEmbed()
+                        .setAuthor(client.user.username,client.user.avatarURL)
+                        .setColor(7385958)
+                        .setThumbnail(msg.author.avatarURL)
+                        .setTimestamp()
+                        .addField("**Profanity Level de "+msg.author.username+" : **","Level "+profanityCurrentLevel)
+          );
 
       })
 
