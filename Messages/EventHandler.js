@@ -60,7 +60,7 @@ Nous te souhaitons de passer de bons moments parmis nous ! 😄`)
             .setColor(7385958)
             .setThumbnail(member.user.avatarURL)
             .setTimestamp()
-            .addField("💀 "+username+" à quitté le discord. 💀","Notre ami `+username+` à quitté notre serveur, quel dommage.")
+            .addField("💀 "+username+" à quitté le discord. 💀","Notre ami "+username+" à quitté notre serveur, quel dommage.")
     );
   }
 
