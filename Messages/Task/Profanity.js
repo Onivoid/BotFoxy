@@ -68,6 +68,40 @@ module.exports = {
       })
 
     }  
-  }
+  },
 
+  ProfanityTop : msg => {
+    let axios = require('axios'),
+        apiUrl = process.env.API_URL;
+
+    axios.get(apiUrl+"/")
+    .then(response => {
+
+      let infos = response.data.data.users,
+          numberTop;
+          topArray = [];
+
+      for(let i = 5; i >= 1 ; i--){
+        if(msg.content.includes(i.toString())){
+          numberTop = i
+          for(let n = 0; n <= i-1; n++){
+            topArray.push(infos[n])
+          }
+        }
+      }
+      if(topArray[0] != undefined){
+        let topResult = "";
+        topArray.forEach(n => {
+          return topResult = topResult + "\n**" +n.user + "** : Level " + n.ProfanityLevel
+        })
+        msg.channel.send(new Discord.RichEmbed()
+                        .setAuthor(client.user.username,client.user.avatarURL)
+                        .setColor(7385958)
+                        .setThumbnail("https://cdn3.iconfinder.com/data/icons/science-flat-round/512/certificate_application_gnome_document_diploma-512.png")
+                        .setTimestamp()
+                        .addField("Top "+numberTop+" des membres les plus toxique :",topResult)
+        );
+      }
+    })
+  }
 }

@@ -29,6 +29,10 @@ module.exports = {
     msg.content.includes('ProfanityLevel') && msg.content.startsWith('Foxy')
     ? profanity.ProfanityLevelAsk(msg)
     : null;
+
+    msg.content.includes('ProfanityTop') && msg.content.startsWith('Foxy')
+    ? profanity.ProfanityTop(msg)
+    : null;
   },
 
   newMember: member => {
