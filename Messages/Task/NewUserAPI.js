@@ -8,9 +8,12 @@ module.exports = {
   PostUser : member => {
     let axios = require('axios'),
         username = member.user.username,
-        apiUrl = process.env.API_URL;
+        apiUrl = process.env.API_URL,
+        infos = response.data.data.user[0];
 
-    axios.post(apiUrl+"/"+username+"/0")
-    .then(console.log(username+" ajouté à l'API"))
+    if(infos === undefined){
+      axios.post(apiUrl+"/"+username+"/0")
+      .then(console.log(username+" ajouté à l'API"))
+    }
   }
 }

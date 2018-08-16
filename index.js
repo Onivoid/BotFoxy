@@ -35,6 +35,7 @@ client.on('ready', () => {
   `.cyan.bold);
 
   client.user.setActivity('Foxy liste de commandes')
+
 });
 
 client.on('message', (msg) =>{
