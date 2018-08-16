@@ -3,8 +3,8 @@ const Discord = require('discord.js'),
 
 module.exports = {
   PostUser : member => {
-    let username = member.username,
-        axios = require('axios'),
+    let axios = require('axios'),
+        username = member.user.username,
         apiUrl = process.env.API_URL;
 
     axios.post(apiUrl+"/"+username+"/0")

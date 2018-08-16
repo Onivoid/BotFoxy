@@ -32,20 +32,20 @@ module.exports = {
   },
 
   newMember: member => {
-    const channel = member.guild.channels.find('name', process.env.CHANNEL_WELCOME);
-    const defaultRole = member.guild.roles.find('name', process.env.DEFAULT_ROLE);
+    const channel = member.guild.channels.find('name', process.env.CHANNEL_WELCOME),
+          defaultRole = member.guild.roles.find('name', process.env.DEFAULT_ROLE);
 
-    channel.send(`${member}`,new Discord.RichEmbed({
-      title : "💠 Bienvenue sur notre serveur ! 💠",
-      color : "749999",
-      description : `Tu as actuellement le rôle de \`| Membre Temporaire |\`.
-
-      Pour ne plus l'avoir, je t'invite à faire ta présentation dans le channel \`#présentation\`.
-      Dans une semaine, si cette présentation n'est pas faite, tu seras automatiquement banni du serveur !
-      
-      Nous te souhaitons de passer de bons moments parmis nous ! 😄`,
-      
-    }).setFooter('©️Skullyfox#2814'));
+    channel.send(`${member}`,new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setTitle("💠 Bienvenue sur notre serveur ! 💠")
+            .setColor(7385958)
+            .setThumbnail(member.user.avatarURL)
+            .setTimestamp()
+            .addField("Tu as actuellement le rôle de \`| Membre Temporaire |\`.")
+            .addField(`Pour ne plus l'avoir, je t'invite à faire ta présentation dans le channel \`#présentation\`.
+                      Dans une semaine, si cette présentation n'est pas faite, tu seras automatiquement banni du serveur !`)
+            .addField(`Nous te souhaitons de passer de bons moments parmis nous ! 😄`)
+    );
     member.addRole(defaultRole).catch(console.error)
 
     newUserApi.PostUser(member);
@@ -53,14 +53,16 @@ module.exports = {
 
   leaveMember: member => {
     const channel = member.guild.channels.find('name', process.env.CHANNEL_WELCOME),
-          username = member.username;
-    channel.send(new Discord.RichEmbed({
-      title : "💀 "+username+"  à quitté le discord. 💀",
-      color : "749999",
-      description : `Notre ami `+username+` à quitté notre serveur,
-      quel dommage.`,
-      
-    }).setFooter('©️Skullyfox#2814'));
+          username = member.user.username;
+
+    channel.send(new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setTitle("💀 "+username+" à quitté le discord. 💀")
+            .setColor(7385958)
+            .setThumbnail(member.user.avatarURL)
+            .setTimestamp()
+            .addField("Notre ami `+username+` à quitté notre serveur, quel dommage.")
+    );
   }
 
 }
