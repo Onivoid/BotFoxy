@@ -25,9 +25,5 @@ module.exports = {
     ? voiceChannel.join().then(dispatcher = msg.guild.voiceConnection) 
       & dispatcher.playStream(yt(url, { audioonly: true }), streamOptions)
     : dispatcher.playStream(yt(url, { audioonly: true }), streamOptions);
-
-    dispatcher.on('error', err => {
-      console.log(err);
-    })
   }
 }
