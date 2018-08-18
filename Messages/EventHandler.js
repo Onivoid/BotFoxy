@@ -1,7 +1,6 @@
 const Discord = require('discord.js'),
       client = new Discord.Client(),
       profanity   =  require('./Task/Profanity'),
-      music   =  require('./Task/Music'),
       newUserApi   =  require('./Task/NewUserAPI'),
       help   =  require('./Task/Help'),
       token = process.env.TOKEN;
@@ -33,18 +32,6 @@ module.exports = {
 
     msg.content.includes('ProfanityTop') && msg.content.startsWith('Foxy')
     ? profanity.ProfanityTop(msg)
-    : null;
-
-    msg.content.includes('joinChannel') && msg.content.startsWith('Foxy')
-    ? music.Join(msg)
-    : null;
-
-    msg.content.includes('leaveChannel') && msg.content.startsWith('Foxy')
-    ? music.Leave(msg)
-    : null;
-
-    msg.content.includes('playMusic') && msg.content.startsWith('Foxy')
-    ? music.Play(msg)
     : null;
   },
 
