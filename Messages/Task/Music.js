@@ -22,8 +22,12 @@ module.exports = {
 
        
     !msg.guild.voiceConnection
-    ? voiceChannel.join().then(dispatcher = msg.guild.voiceConnection).catch(console.log(err)) 
+    ? voiceChannel.join().then(dispatcher = msg.guild.voiceConnection) 
       & dispatcher.playStream(yt(url, { audioonly: true }), streamOptions)
     : dispatcher.playStream(yt(url, { audioonly: true }), streamOptions);
+
+    dispatcher.on('error', err => {
+      console.log(err);
+    })
   }
 }
