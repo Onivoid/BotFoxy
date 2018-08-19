@@ -1,7 +1,6 @@
 const Discord = require('discord.js'),
       client = new Discord.Client(),
       profanity   =  require('./Task/Profanity'),
-      newUserApi   =  require('./Task/NewUserAPI'),
       help   =  require('./Task/Help'),
       token = process.env.TOKEN;
       
@@ -51,8 +50,6 @@ Dans une semaine, si cette présentation n'est pas faite, tu seras automatiqueme
 Nous te souhaitons de passer de bons moments parmis nous ! 😄`)
     );
     member.addRole(defaultRole).catch(console.error)
-
-    newUserApi.PostUser(member);
   },
 
   leaveMember: member => {

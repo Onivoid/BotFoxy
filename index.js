@@ -12,6 +12,7 @@ const Discord = require('discord.js'),
       clear = require('clear'),
       client = new Discord.Client(),
       colors = require('colors'),
+      newUserApi   =  require('./Task/NewUserAPI'),
       eventHandler = require('./Messages/EventHandler'),
       token = process.env.TOKEN;
 
@@ -43,7 +44,8 @@ client.on('message', (msg) =>{
 });
 
 client.on('guildMemberAdd', member => {
-  eventHandler.newMember(member)
+  eventHandler.newMember(member);
+  newUserApi.PostUser(member);
 });
 
 client.on('guildMemberRemove', member => {
