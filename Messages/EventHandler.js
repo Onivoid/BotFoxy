@@ -18,25 +18,20 @@ module.exports = {
     let badwords = new BadWords({ placeHolder: 'x', emptyList: true });
     badwords.addWords(frenchBadWords.array);
 
-    msg.content.includes('liste de commandes') && msg.content.startsWith('Foxy')
-    ? help.Help(msg)
-    : null;
+    if (msg.content.includes('liste de commandes') && msg.content.startsWith('Foxy'))
+      help.Help(msg);
 
-    badwords.isProfane(msg.content)
-    ? profanity.Profanity(msg)
-    : null;
+    if (badwords.isProfane(msg.content)) 
+      profanity.Profanity(msg);
 
-    msg.content.includes('ProfanityLevel') && msg.content.startsWith('Foxy')
-    ? profanity.ProfanityLevelAsk(msg)
-    : null;
+    if (msg.content.includes('ProfanityLevel') && msg.content.startsWith('Foxy')) 
+      profanity.ProfanityLevelAsk(msg);
 
-    msg.content.includes('ProfanityTop') && msg.content.startsWith('Foxy')
-    ? profanity.ProfanityTop(msg)
-    : null;
+    if (msg.content.includes('ProfanityTop') && msg.content.startsWith('Foxy')) 
+      profanity.ProfanityTop(msg);
 
-    msg.content.includes('ClearMessage') && msg.content.startsWith('Foxy')
-    ? clear.ClearMessages(msg)
-    : null;
+    if (msg.content.includes('ClearMessage') && msg.content.startsWith('Foxy')) 
+      clear.ClearMessages(msg);
 
   },
 
