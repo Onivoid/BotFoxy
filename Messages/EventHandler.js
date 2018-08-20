@@ -1,6 +1,7 @@
 const Discord = require('discord.js'),
       client = new Discord.Client(),
       profanity   =  require('./Task/Profanity'),
+      clear   =  require('./Task/Clear'),
       help   =  require('./Task/Help'),
       token = process.env.TOKEN;
       
@@ -32,6 +33,11 @@ module.exports = {
     msg.content.includes('ProfanityTop') && msg.content.startsWith('Foxy')
     ? profanity.ProfanityTop(msg)
     : null;
+
+    msg.content.includes('ClearMessage') && msg.content.startsWith('Foxy')
+    ? clear.ClearMessages(msg)
+    : null;
+
   },
 
   newMember: member => {
