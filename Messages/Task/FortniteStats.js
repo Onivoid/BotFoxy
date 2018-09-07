@@ -22,11 +22,12 @@ module.exports = {
         msg.channel.send(new Discord.RichEmbed()
                     .setAuthor(client.user.username,client.user.avatarURL)
                     .setColor(4880610)
+                    .setTitle(` 💠 --- Stats du Joueur ${username} --- 💠 `)
                     .setThumbnail("https://i.pinimg.com/originals/3f/43/b8/3f43b80b8dff5adbdf748594c62aae08.png")
                     .setTimestamp()
-                    .addField("Nombre de Parties",Matches)
-                    .addField("Nombre de Kills",Kills)
-                    .addField("Nombre de Tops 1",Win)
+                    .addField("Nombre de Parties",Matches, true)
+                    .addField("Nombre de Kills",Kills, true)
+                    .addField("Nombre de Tops 1",Win, true)
         )
         console.log(res.data.lifeTimeStats);
       }).catch(err => {console.log(err)});
