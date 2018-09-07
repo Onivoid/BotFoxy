@@ -57,6 +57,9 @@ module.exports = {
               Name = PlateformAndName[1];
           FortniteStats.GetStats(msg, Plateform, Name);
         }
+
+        if (msg.content.includes('FortniteStore') && msg.content.startsWith('Foxy'))
+          FortniteStats.GetStore(msg);
   
 
   },
