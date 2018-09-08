@@ -35,7 +35,7 @@ client.on('ready', () => {
   🎉 Votre bot est actuellement connecté ! 🎉
   `.cyan.bold);
 
-  client.user.setActivity('Foxy liste de commandes')
+  client.user.setActivity('Foxy')
 
 });
 
