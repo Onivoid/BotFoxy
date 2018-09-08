@@ -3,9 +3,7 @@ const Discord = require('discord.js'),
       profanity   =  require('./Task/Profanity'),
       PornPics   =  require('./Task/PornPics'),
       clear   =  require('./Task/Clear'),
-      VDM   =  require('./Task/VDM'),
       help   =  require('./Task/Help'),
-      FortniteStats =require('./Task/FortniteStats'),
       token = process.env.TOKEN;
       
 client.login(token)
