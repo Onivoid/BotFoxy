@@ -19,7 +19,7 @@ module.exports = {
     let badwords = new BadWords({ placeHolder: 'x', emptyList: true });
     badwords.addWords(frenchBadWords.array);
 
-    if (msg.content.includes('liste de commandes') && msg.content.startsWith('Foxy'))
+    if (msg.content.includes('Foxy') && msg.content.split(' ').length === 1)
       help.Help(msg);
 
     if (badwords.isProfane(msg.content)) 
