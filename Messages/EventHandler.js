@@ -3,6 +3,7 @@ const Discord = require('discord.js'),
       profanity   =  require('./Task/Profanity'),
       PornPics   =  require('./Task/PornPics'),
       clear   =  require('./Task/Clear'),
+      VDM   =  require('./Task/VDM'),
       help   =  require('./Task/Help'),
       FortniteStats =require('./Task/FortniteStats'),
       token = process.env.TOKEN;
@@ -50,18 +51,7 @@ module.exports = {
 
         if (msg.content.includes('PornCategory') && msg.content.startsWith('Foxy')) 
           PornPics.CategoryShow(msg);
-
-        if (msg.content.includes('FortniteStats') && msg.content.startsWith('Foxy')){
-          let PlateformAndName = msg.content.split(' ')[2].split(':'),
-              Plateform = PlateformAndName[0],
-              Name = PlateformAndName[1];
-          FortniteStats.GetStats(msg, Plateform, Name);
-        }
-
-        if (msg.content.includes('FortniteStore') && msg.content.startsWith('Foxy'))
-          FortniteStats.GetStore(msg);
   
-
   },
 
   newMember: member => {
