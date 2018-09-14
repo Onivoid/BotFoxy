@@ -6,6 +6,14 @@ const Discord = require('discord.js'),
       Twitter = require('./Task/APITwitter'),
       clear   =  require('./Task/Clear'),
       help   =  require('./Task/Help'),
+      MediaChannel = [
+        "490109704412987394",
+        "490109899007590410",
+        "490109927327531008",
+        "490109949712793610"
+      ],
+      LabID = "474254089383837717",
+      ProgID = "450289042689359872",
       token = process.env.TOKEN;
       
 client.login(token)
@@ -55,8 +63,18 @@ module.exports = {
     if (msg.content.includes('VDM') && msg.content.startsWith('Foxy'))
       Twitter.TwitterVDM(msg);
 
-    if(msg.attachments.array().length >= 1)
-      MessageFilter.MessageMedia(msg);
+
+    
+    if(msg.attachments.array().length >= 1 && msg.guild.id != LabID && msg.guild.id != ProgID){
+      let MessageChannel = msg.channel.id
+      let Infraction = true;
+      MediaChannel.forEach(n => {
+        if (MessageChannel === n)
+          Infraction = false;
+      });
+      if (Infraction != false)
+        MessageFilter.MessageMedia(msg);
+    };
   
   },
 
