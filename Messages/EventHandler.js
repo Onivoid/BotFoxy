@@ -2,6 +2,8 @@ const Discord = require('discord.js'),
       client = new Discord.Client(),
       profanity   =  require('./Task/Profanity'),
       PornPics   =  require('./Task/PornPics'),
+      MessageFilter = require('./Task/MessagesFilter'),
+      Twitter = require('./Task/APITwitter'),
       clear   =  require('./Task/Clear'),
       help   =  require('./Task/Help'),
       token = process.env.TOKEN;
@@ -34,21 +36,27 @@ module.exports = {
     if (msg.content.includes('ClearMessage') && msg.content.startsWith('Foxy')) 
       clear.ClearMessages(msg);
 
-      if (msg.content.includes('Pornpics') && msg.content.startsWith('Foxy'))
-        msg.channel.nsfw 
-        ? PornPics.PornPics(msg)
-        : msg.channel.send(new Discord.RichEmbed()
-                                      .setAuthor(client.user.username,client.user.avatarURL)
-                                      .setColor(7385958)
-                                      .setThumbnail("https://cdn2.iconfinder.com/data/icons/love-flat-2/128/Sex_Symbol-512.png")
-                                      .setTimestamp()
-                                      .addField(":x: Indisponnible dans ce Salon :x:","Cette commande est seulement disponnible dans les \
-                                      salon NSFW.")
+    if (msg.content.includes('Pornpics') && msg.content.startsWith('Foxy'))
+      msg.channel.nsfw 
+      ? PornPics.PornPics(msg)
+      : msg.channel.send(new Discord.RichEmbed()
+                                    .setAuthor(client.user.username,client.user.avatarURL)
+                                    .setColor(7385958)
+                                    .setThumbnail("https://cdn2.iconfinder.com/data/icons/love-flat-2/128/Sex_Symbol-512.png")
+                                    .setTimestamp()
+                                    .addField(":x: Indisponnible dans ce Salon :x:","Cette commande est seulement disponnible dans les \
+                                    salon NSFW.")
                                         
-        );
+      );
 
-        if (msg.content.includes('PornCategory') && msg.content.startsWith('Foxy')) 
-          PornPics.CategoryShow(msg);
+    if (msg.content.includes('PornCategory') && msg.content.startsWith('Foxy')) 
+      PornPics.CategoryShow(msg);
+
+    if (msg.content.includes('VDM') && msg.content.startsWith('Foxy'))
+      Twitter.TwitterVDM(msg);
+
+    if(msg.attachments.array().length >= 1)
+      MessageFilter.MessageMedia(msg);
   
   },
 
