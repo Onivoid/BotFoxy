@@ -7,15 +7,15 @@ const Discord = require('discord.js'),
       clear   =  require('./Task/Clear'),
       help   =  require('./Task/Help'),
       MediaChannel = [
-        "490109704412987394",
-        "490109899007590410",
-        "490109927327531008",
-        "490109949712793610"
+        "499294330767409162",
+        "499294438712016896",
+        "490109949712793610",
+        "499294255651487755"
       ],
       LabID = "474254089383837717",
       ProgID = "450289042689359872",
       token = process.env.TOKEN;
-      
+
 client.login(token)
 
 
@@ -32,20 +32,20 @@ module.exports = {
     if (msg.content.includes('Foxy') && msg.content.split(' ').length === 1)
       help.Help(msg);
 
-    if (badwords.isProfane(msg.content)) 
+    if (badwords.isProfane(msg.content))
       profanity.Profanity(msg);
 
-    if (msg.content.includes('ProfanityLevel') && msg.content.startsWith('Foxy')) 
+    if (msg.content.includes('ProfanityLevel') && msg.content.startsWith('Foxy'))
       profanity.ProfanityLevelAsk(msg);
 
-    if (msg.content.includes('ProfanityTop') && msg.content.startsWith('Foxy')) 
+    if (msg.content.includes('ProfanityTop') && msg.content.startsWith('Foxy'))
       profanity.ProfanityTop(msg);
 
-    if (msg.content.includes('ClearMessage') && msg.content.startsWith('Foxy')) 
+    if (msg.content.includes('ClearMessage') && msg.content.startsWith('Foxy'))
       clear.ClearMessages(msg);
 
     if (msg.content.includes('Pornpics') && msg.content.startsWith('Foxy'))
-      msg.channel.nsfw 
+      msg.channel.nsfw
       ? PornPics.PornPics(msg)
       : msg.channel.send(new Discord.RichEmbed()
                                     .setAuthor(client.user.username,client.user.avatarURL)
@@ -54,17 +54,17 @@ module.exports = {
                                     .setTimestamp()
                                     .addField(":x: Indisponnible dans ce Salon :x:","Cette commande est seulement disponnible dans les \
                                     salon NSFW.")
-                                        
+
       );
 
-    if (msg.content.includes('PornCategory') && msg.content.startsWith('Foxy')) 
+    if (msg.content.includes('PornCategory') && msg.content.startsWith('Foxy'))
       PornPics.CategoryShow(msg);
 
     if (msg.content.includes('VDM') && msg.content.startsWith('Foxy'))
       Twitter.TwitterVDM(msg);
 
 
-    
+
     if(msg.attachments.array().length >= 1 && msg.guild.id != LabID && msg.guild.id != ProgID){
       let MessageChannel = msg.channel.id
       let Infraction = true;
@@ -75,7 +75,7 @@ module.exports = {
       if (Infraction != false)
         MessageFilter.MessageMedia(msg);
     };
-  
+
   },
 
   newMember: member => {
