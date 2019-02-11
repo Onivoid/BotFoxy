@@ -12,7 +12,6 @@ const Discord = require('discord.js'),
       clear = require('clear'),
       client = new Discord.Client(),
       colors = require('colors'),
-      newUserApi   =  require('./Messages/Task/NewUserAPI'),
       eventHandler = require('./Messages/EventHandler'),
       token = process.env.TOKEN;
 
