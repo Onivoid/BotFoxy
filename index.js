@@ -44,7 +44,6 @@ client.on('message', (msg) =>{
 
 client.on('guildMemberAdd', member => {
   eventHandler.newMember(member);
-  newUserApi.PostUser(member);
 });
 
 client.on('guildMemberRemove', member => {
