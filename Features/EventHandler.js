@@ -1,7 +1,8 @@
 const Discord = require('discord.js'),
       client = new Discord.Client(),
-      help   =  require('./Task/Help'),
-      clear = require('./Task/Clear'),
+      help   =  require('./Utils/Help'),
+      clear = require('./Utils/Clear'),
+      survey = require('./Utils/Survey'),
       token = process.env.TOKEN;
 
 client.login(token)
@@ -18,6 +19,10 @@ module.exports = {
     if (msg.content.includes('ClearMessage') && msg.content.startsWith('Foxy'))
       clear.ClearMessages(msg);
 
+    if (msg.content.includes('Survey') && msg.content.startsWith('Foxy')){
+      const MessageSplit = msg.content.split(',');
+      survey.Survey(msg, MessageSplit[1], MessageSplit[2], eval(MessageSplit[3])); // Survey(msg, Title, Content);
+    }
   },
 
   newMember: member => {

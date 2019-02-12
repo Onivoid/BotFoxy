@@ -12,7 +12,7 @@ const Discord = require('discord.js'),
       clear = require('clear'),
       client = new Discord.Client(),
       colors = require('colors'),
-      eventHandler = require('./Messages/EventHandler'),
+      eventHandler = require('./Features/EventHandler'),
       token = process.env.TOKEN;
 
 client.on('ready', () => {
